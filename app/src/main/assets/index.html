@@ -377,7 +377,7 @@ function fitDailyNativeResultV20(kind,payload){
   mergeHealthV19(data);renderV19();let m=document.getElementById('syncMessage');if(m)m.textContent='Synced '+(data.steps??0)+' steps'+(data.sleepHours?(', '+Number(data.sleepHours).toFixed(1)+' h sleep'):'')+(data.exerciseMinutes?(', '+data.exerciseMinutes+' active min'):'')+'.';notify('Health synced ✓');
  }else if(kind==='error'){
   let m=document.getElementById('syncMessage');if(m)m.textContent=data.message||'Health operation failed.';notify('Health operation failed');
- }else if(kind==='notification'){
+ }else if(kind==='backup'){notify(data.saved?'Backup saved ✓':'Backup not saved');}else if(kind==='notification'){
   let m=document.getElementById('reminderStatus');if(m)m.textContent=data.allowed?'Notifications are allowed':'Notifications are blocked in Android settings';
  }
 }
