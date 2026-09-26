@@ -1,0 +1,1 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"><item android:drawable="@color/fit_bg"/><item><shape android:shape="oval"><size android:width="112dp" android:height="112dp"/><solid android:color="@color/fit_accent"/></shape></item></layer-list>
