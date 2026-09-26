@@ -8,11 +8,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
-<title>FitDaily v2.1</title>
+<title>FitDaily v2.2</title>
 <style>
 :root{--bg:#07101d;--card:#111d2e;--card2:#16243a;--text:#f6f8fc;--muted:#91a0b8;--accent:#6ee7b7;--accent2:#60a5fa;--warn:#fbbf24;--danger:#fb7185;--line:#263750;--r:22px}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:linear-gradient(180deg,#07101d,#0b1525);color:var(--text);min-height:100vh}.app{max-width:560px;margin:auto;min-height:100vh;padding-bottom:92px}.top{padding:22px 18px 10px;position:sticky;top:0;background:rgba(7,16,29,.92);backdrop-filter:blur(16px);z-index:4}.row{display:flex;align-items:center;justify-content:space-between;gap:12px}.hello{font-size:13px;color:var(--muted)}h1{font-size:26px;margin:2px 0 0}.date{font-size:13px;color:var(--muted)}main{padding:10px 16px}.hero{background:linear-gradient(135deg,#16304a,#12362f);padding:18px;border-radius:28px;box-shadow:0 12px 40px #0005}.score{font-size:42px;font-weight:800}.sub{color:#c6d2df;font-size:13px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:15px}.metric{font-size:23px;font-weight:800;margin:8px 0 2px}.label{font-size:13px;color:var(--muted)}.bar{height:8px;background:#243249;border-radius:20px;overflow:hidden;margin-top:10px}.fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:20px}.section{margin-top:22px}.section h2{font-size:18px;margin:0 0 12px}.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.qbtn{border:0;border-radius:18px;padding:13px 5px;background:var(--card2);color:white;font-weight:700;font-size:12px}.qbtn span{display:block;font-size:23px;margin-bottom:5px}.entry{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.entry:last-child{border-bottom:0}.entry strong{display:block}.entry small{color:var(--muted)}button{cursor:pointer}.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(560px,100%);display:grid;grid-template-columns:repeat(7,1fr);background:rgba(11,21,37,.96);border-top:1px solid var(--line);padding:8px 5px calc(8px + env(safe-area-inset-bottom));backdrop-filter:blur(18px);z-index:5}.nav{background:none;border:0;color:var(--muted);font-size:11px;padding:7px 2px}.nav b{display:block;font-size:21px;margin-bottom:2px}.nav.active{color:var(--accent)}.page{display:none}.page.active{display:block}.fab{border:0;background:var(--accent);color:#052016;border-radius:16px;padding:11px 15px;font-weight:800}.form{display:grid;gap:12px}.form input,.form select{width:100%;background:#0b1627;border:1px solid var(--line);color:white;padding:14px;border-radius:14px;font-size:16px}.primary{border:0;background:var(--accent);color:#062218;padding:14px;border-radius:15px;font-weight:800;font-size:15px}.secondary{border:1px solid var(--line);background:var(--card2);color:white;padding:11px;border-radius:14px}.pill{font-size:12px;background:#20334c;padding:5px 9px;border-radius:999px;color:#bcd0e5}.modal{position:fixed;inset:0;background:#0009;display:none;align-items:flex-end;z-index:10}.modal.show{display:flex}.sheet{width:min(560px,100%);margin:auto;background:#101c2d;border-radius:28px 28px 0 0;padding:20px 18px 28px;max-height:82vh;overflow:auto}.sheet h3{margin-top:0}.close{background:none;border:0;color:white;font-size:24px}.empty{color:var(--muted);text-align:center;padding:22px}.chart{display:flex;align-items:end;gap:7px;height:100px;padding-top:10px}.chart i{flex:1;background:linear-gradient(var(--accent2),var(--accent));border-radius:8px 8px 3px 3px;min-height:8px}.goalrow{display:grid;grid-template-columns:1fr 90px;gap:10px;align-items:center;margin:10px 0}.goalrow input{background:#0b1627;border:1px solid var(--line);color:#fff;padding:10px;border-radius:12px;width:100%}
 
-/* FitDaily v2.1 visual upgrade */
+/* FitDaily v2.2 visual upgrade */
 :root{--purple:#a78bfa;--orange:#fb923c;--cyan:#22d3ee}
 body{background:
  radial-gradient(circle at 85% 0%,rgba(96,165,250,.12),transparent 28%),
@@ -43,7 +43,7 @@ body{background:
 @media(min-width:700px){.app{max-width:620px}.bottom{width:min(620px,100%)}}
 
 
-/* FitDaily v2.1 workout upgrade */
+/* FitDaily v2.2 workout upgrade */
 .workout-hero{background:linear-gradient(135deg,#182842,#20354c);border:1px solid var(--line);border-radius:26px;padding:17px;margin-bottom:14px}
 .workout-hero h3{margin:0 0 5px;font-size:20px}.workout-hero p{margin:0;color:var(--muted);font-size:12px}
 .template-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}
@@ -62,7 +62,7 @@ body{background:
 .delete-mini{border:0;background:transparent;color:var(--danger);font-size:17px;padding:5px}
 
 
-/* FitDaily v2.1 nutrition upgrade */
+/* FitDaily v2.2 nutrition upgrade */
 .nutri-hero{background:linear-gradient(135deg,#173329,#182b42);border:1px solid var(--line);border-radius:26px;padding:17px;margin-bottom:14px}
 .nutri-hero h3{margin:0 0 4px}.macro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
 .macro{background:rgba(255,255,255,.04);border-radius:15px;padding:11px 8px;text-align:center}.macro strong{font-size:17px;display:block}.macro small{font-size:10px;color:var(--muted)}
@@ -74,7 +74,7 @@ body{background:
 .quickfood-title{margin:18px 0 9px;font-size:14px}.macro-inputs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.macro-inputs label{font-size:10px;color:var(--muted)}.macro-inputs input{margin-top:4px}
 
 
-/* FitDaily v2.1 recovery & activity upgrade */
+/* FitDaily v2.2 recovery & activity upgrade */
 .health-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
 .health-tab{border:1px solid var(--line);background:#122036;color:var(--muted);padding:11px 5px;border-radius:14px;font-weight:800}
 .health-tab.active{background:rgba(110,231,183,.1);color:var(--accent);border-color:rgba(110,231,183,.25)}
@@ -90,7 +90,7 @@ body{background:
 .timeline{margin-top:12px}.timeline-row{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.timeline-row:last-child{border:0}.time-dot{width:9px;height:9px;border-radius:50%;background:var(--cyan);flex:0 0 auto}.timeline-row strong{font-size:13px}.timeline-row small{display:block;color:var(--muted)}
 
 
-/* FitDaily v2.1 progress & analytics */
+/* FitDaily v2.2 progress & analytics */
 .range-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
 .range-btn{border:1px solid var(--line);background:#122036;color:var(--muted);padding:11px;border-radius:14px;font-weight:800}
 .range-btn.active{background:rgba(96,165,250,.12);color:var(--accent2);border-color:rgba(96,165,250,.3)}
@@ -103,7 +103,7 @@ body{background:
 .weight-entry{display:grid;grid-template-columns:1fr auto;gap:8px}.weight-entry input{background:#0b1627;border:1px solid var(--line);color:#fff;padding:13px;border-radius:13px;font-size:16px}.weight-chart{height:120px;position:relative;margin-top:12px;display:flex;align-items:flex-end;gap:7px}.weight-bar{flex:1;border-radius:7px 7px 2px 2px;background:linear-gradient(var(--accent),var(--accent2));min-height:4px}.delta-up{color:var(--warn)}.delta-down{color:var(--accent)}
 
 
-/* FitDaily v2.1 history, customization & data tools */
+/* FitDaily v2.2 history, customization & data tools */
 .history-hero{background:linear-gradient(135deg,#182a43,#17352f);border:1px solid var(--line);border-radius:25px;padding:16px}
 .calendar-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.calendar-head button{border:0;background:#17263c;color:#fff;border-radius:11px;padding:8px 12px}.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.dow{text-align:center;color:var(--muted);font-size:9px;padding:5px 0}.cal-day{aspect-ratio:1;border:1px solid transparent;background:#101d30;color:#fff;border-radius:11px;font-size:11px;position:relative}.cal-day.has-data:after{content:"";position:absolute;width:4px;height:4px;border-radius:50%;background:var(--accent);bottom:4px;left:50%;transform:translateX(-50%)}.cal-day.selected{border-color:var(--accent);color:var(--accent);background:rgba(110,231,183,.08)}.cal-day.today{box-shadow:inset 0 0 0 1px var(--accent2)}
 .day-summary{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.day-tile{background:#101d30;border:1px solid var(--line);border-radius:15px;padding:11px}.day-tile strong{display:block;font-size:17px}.day-tile small{color:var(--muted);font-size:9px}
@@ -115,7 +115,7 @@ body{background:
 .light-mode .top,.light-mode .bottom{background:rgba(242,247,251,.96)}.light-mode .hero,.light-mode .health-hero,.light-mode .nutri-hero,.light-mode .workout-hero,.light-mode .history-hero{color:#f6f8fc}.light-mode .form input,.light-mode .form select,.light-mode .goalrow input,.light-mode .weight-entry input,.light-mode .note-area{background:#f6f9fc;color:#102033}.light-mode .card,.light-mode .analytics-card,.light-mode .day-tile,.light-mode .achievement{box-shadow:0 6px 18px rgba(28,45,65,.06)}.light-mode .cal-day{background:#f8fafc;color:#20344a}.light-mode .sheet{background:#fff;color:#102033}
 
 
-/* FitDaily v2.1 installable app experience */
+/* FitDaily v2.2 installable app experience */
 .profile-chip{display:flex;align-items:center;gap:10px}.avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#07101d;font-weight:900}
 .install-card{background:linear-gradient(135deg,#17364a,#18352e);border:1px solid rgba(110,231,183,.22);border-radius:20px;padding:14px;margin-top:12px}.install-card strong{display:block}.install-card small{color:#bfd0dc}.install-card button{margin-top:10px;width:100%}
 .status-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.status-row:last-child{border:0}.status-pill{font-size:10px;border-radius:999px;padding:5px 8px;background:#21334a;color:var(--muted)}.status-pill.ready{background:rgba(110,231,183,.12);color:var(--accent)}
@@ -125,7 +125,7 @@ body{background:
 @media(max-width:420px){.bottom{overflow-x:auto;grid-template-columns:repeat(7,minmax(56px,1fr))}.nav{min-width:56px}}
 
 
-/* FitDaily v2.1 Android readiness */
+/* FitDaily v2.2 Android readiness */
 .sync-hero{background:linear-gradient(135deg,#17364b,#18362e);border:1px solid rgba(110,231,183,.2);border-radius:22px;padding:15px;margin-top:12px}
 .sync-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.sync-dot{width:10px;height:10px;border-radius:50%;background:var(--muted);display:inline-block;margin-right:6px}.sync-dot.connected{background:var(--accent);box-shadow:0 0 12px rgba(110,231,183,.6)}
 .permission-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.permission-card{background:#101d30;border:1px solid var(--line);border-radius:15px;padding:11px}.permission-card strong{font-size:12px;display:block}.permission-card small{color:var(--muted);font-size:9px}.permission-card .status-pill{display:inline-block;margin-top:7px}
@@ -182,13 +182,13 @@ body{background:
 <div class="section"><div class="section-head"><h2 id="selectedDayTitle">Selected day</h2><span id="selectedDayScore">0%</span></div><div class="day-summary"><div class="day-tile"><small>STEPS</small><strong id="histSteps">0</strong></div><div class="day-tile"><small>WATER</small><strong id="histWater">0 ml</strong></div><div class="day-tile"><small>SLEEP</small><strong id="histSleep">0 h</strong></div><div class="day-tile"><small>CALORIES</small><strong id="histCalories">0</strong></div></div></div>
 <div class="section"><div class="section-head"><h2>Daily note</h2><span>Private on device</span></div><div class="card"><textarea class="note-area" id="dailyNote" placeholder="How did today feel? Training, energy, recovery..."></textarea><button class="primary" style="width:100%;margin-top:8px" onclick="saveDailyNote()">Save note</button></div></div>
 <div class="section"><div class="section-head"><h2>Day details</h2><span id="histItemCount">0 entries</span></div><div class="card" id="historyDetails"></div></div></section><section id="profile" class="page"><h2>Goals & settings</h2><div class="card form"><div class="goalrow"><label>Daily steps</label><input id="gSteps" type="number"></div><div class="goalrow"><label>Water (ml)</label><input id="gWater" type="number"></div><div class="goalrow"><label>Calories</label><input id="gCalories" type="number"></div><div class="goalrow"><label>Sleep (hours)</label><input id="gSleep" type="number" step="0.5"></div><div class="goalrow"><label>Protein (g)</label><input id="gProtein" type="number"></div><div class="goalrow"><label>Carbs (g)</label><input id="gCarbs" type="number"></div><div class="goalrow"><label>Fat (g)</label><input id="gFat" type="number"></div><button class="primary" onclick="saveGoals()">Save goals</button><button class="secondary" onclick="editSteps()">Update today's steps</button><button class="secondary" onclick="openWater()">Add custom water</button><button class="secondary" onclick="resetToday()">Reset today's data</button></div><div class="section"><h2>Your profile</h2><div class="card form"><input id="v18Name" placeholder="Your name"><select id="v18Goal"><option value="general">General fitness</option><option value="strength">Build strength</option><option value="fatloss">Fat loss</option><option value="endurance">Endurance</option><option value="wellness">Health & wellness</option></select><button class="secondary" onclick="saveProfileV18()">Save profile</button></div></div>
-<div class="section"><h2>Reminders</h2><div class="card"><div class="reminder-row"><div><strong>Workout</strong><small class="label">Preferred reminder time</small></div><input id="remWorkout" type="time"></div><div class="reminder-row"><div><strong>Water</strong><small class="label">Daily hydration reminder</small></div><input id="remWater" type="time"></div><div class="reminder-row"><div><strong>Bedtime</strong><small class="label">Wind-down reminder</small></div><input id="remSleep" type="time"></div><button class="secondary" style="width:100%;margin-top:10px" onclick="saveRemindersV18()">Save reminders</button><div class="app-info" style="margin-top:8px">Times are saved in v1.8. Browser notification scheduling is limited; native Android reminders can use these settings when the APK layer is added.</div></div></div>
-<div class="section"><h2>App & device</h2><div class="card"><div class="status-row"><div><strong>Offline app</strong><small class="label">PWA cache and install support</small></div><span class="status-pill ready" id="offlineStatus">Ready</span></div><div class="status-row"><div><strong>Health Connect</strong><small class="label">Steps, sleep and activity sync</small></div><span class="status-pill">Android bridge required</span></div><div class="sync-hero"><div class="sync-head"><div><strong><span class="sync-dot" id="nativeDot"></span>Android Health Sync</strong><small class="label" id="nativeStatus">Browser mode</small></div><span class="status-pill" id="bridgeStatus">Not connected</span></div>
+<div class="section"><h2>Reminders</h2><div class="card"><div class="reminder-row"><div><strong>Workout</strong><small class="label">Preferred reminder time</small></div><input id="remWorkout" type="time"></div><div class="reminder-row"><div><strong>Water</strong><small class="label">Daily hydration reminder</small></div><input id="remWater" type="time"></div><div class="reminder-row"><div><strong>Bedtime</strong><small class="label">Wind-down reminder</small></div><input id="remSleep" type="time"></div><button class="secondary" style="width:100%;margin-top:10px" onclick="saveRemindersV18()">Save reminders</button><div class="label" id="reminderStatus" style="margin-top:8px">Notification status will be checked by Android.</div><div class="app-info" style="margin-top:8px">Times are stored on this device. In the Android app they are also scheduled as native reminders.</div></div></div>
+<div class="section"><h2>App & device</h2><div class="card"><div class="status-row"><div><strong>Offline app</strong><small class="label">PWA cache and install support</small></div><span class="status-pill ready" id="offlineStatus">Ready</span></div><div class="status-row"><div><strong>Health Connect</strong><small class="label">Steps, sleep and activity sync</small></div><span class="status-pill" id="healthPlatformStatus">Checking…</span></div><div class="sync-hero"><div class="sync-head"><div><strong><span class="sync-dot" id="nativeDot"></span>Android Health Sync</strong><small class="label" id="nativeStatus">Browser mode</small></div><span class="status-pill" id="bridgeStatus">Not connected</span></div>
 <div class="permission-grid"><div class="permission-card"><strong>👟 Steps</strong><small>Health Connect read access</small><span class="status-pill" id="permSteps">Pending</span></div><div class="permission-card"><strong>🌙 Sleep</strong><small>Health Connect read access</small><span class="status-pill" id="permSleep">Pending</span></div><div class="permission-card"><strong>🔥 Activity</strong><small>Exercise session access</small><span class="status-pill" id="permExercise">Pending</span></div><div class="permission-card"><strong>⚖ Weight</strong><small>Weight record access</small><span class="status-pill" id="permWeight">Pending</span></div></div>
 <div class="sync-actions"><button class="secondary" onclick="requestHealthPermissionsV19()">Permissions</button><button class="secondary" onclick="syncHealthV19()">Sync now</button></div><div class="native-banner" id="syncMessage">Manual FitDaily records remain available in PWA mode. In the Android v2.0 build, this panel connects to Health Connect and native reminders.</div></div>
 <div class="section" style="margin-top:12px"><div class="section-head"><h2>Data sources</h2><span id="lastSyncText">Never synced</span></div><div class="card"><div class="source-row"><div><strong>FitDaily manual</strong><small>Meals, water, workouts, notes</small></div><span class="status-pill ready">Active</span></div><div class="source-row"><div><strong>Health Connect</strong><small>Steps, sleep, exercise, weight</small></div><span class="status-pill" id="hcSourceStatus">Waiting</span></div></div></div><div id="installArea" class="install-card"><strong>Install FitDaily</strong><small>Add FitDaily to your home screen for an app-like experience.</small><button class="primary" id="installBtn" onclick="installV18()">Install app</button></div></div></div><div class="section"><h2>Appearance</h2><div class="card"><div class="setting-row"><div><strong>Light theme</strong><small>Switch between dark and light</small></div><button id="themeSwitch" class="switch" onclick="toggleThemeV17()"><i></i></button></div><div class="setting-row"><div><strong>Compact dashboard</strong><small>Reduce dashboard detail</small></div><button id="compactSwitch" class="switch" onclick="toggleCompactV17()"><i></i></button></div></div></div>
 <div class="section"><h2>Workout templates</h2><div class="card"><div class="form"><input id="customTemplateName" placeholder="Template name"><input id="customTemplateExercises" placeholder="Exercises separated by commas"><button class="secondary" onclick="addCustomTemplateV17()">Save template</button></div><div class="template-list" id="customTemplateList"></div></div></div>
-<div class="section"><h2>Data</h2><div class="card"><div class="data-actions"><button class="secondary" onclick="exportDataV17()">Export backup</button><button class="secondary" onclick="document.getElementById('importFileV17').click()">Restore backup</button></div><input id="importFileV17" type="file" accept=".json,application/json" style="display:none" onchange="importDataV17(this)"><div class="label" style="margin-top:10px">Backup includes goals, daily records, weight history, templates and preferences.</div></div></div><p class="label" style="padding:10px">FitDaily v2.1 stores your records locally on this device. Automatic sensor/Health Connect sync can be added in a later Android build.</p></section>
+<div class="section"><h2>Data</h2><div class="card"><div class="data-actions"><button class="secondary" onclick="exportDataV17()">Export backup</button><button class="secondary" onclick="document.getElementById('importFileV17').click()">Restore backup</button></div><input id="importFileV17" type="file" accept=".json,application/json" style="display:none" onchange="importDataV17(this)"><div class="label" style="margin-top:10px">Backup includes goals, daily records, weight history, templates and preferences.</div></div></div><p class="label" style="padding:10px">FitDaily v2.2 stores manual records locally on this device. Health Connect data is imported only when you grant permission and run sync.</p></section>
 </main>
 <nav class="bottom"><button class="nav active" data-page="home"><b>⌂</b>Today</button><button class="nav" data-page="workout"><b>◉</b>Workout</button><button class="nav" data-page="meals"><b>⌑</b>Meals</button><button class="nav" data-page="progress"><b>▥</b>Progress</button><button class="nav" data-page="health"><b>♥</b>Health</button><button class="nav" data-page="historyPage"><b>▦</b>History</button><button class="nav" data-page="profile"><b>⚙</b>Profile</button></nav></div>
 <div class="onboard" id="onboardV18"><div class="onboard-inner"><div class="onboard-logo">♥</div>
@@ -211,7 +211,15 @@ function render(){let x=d(), c=x.meals.reduce((a,b)=>a+(+b.cal||0),0), mins=x.wo
  document.getElementById('workoutList').innerHTML=x.workouts.length?x.workouts.slice().reverse().map(w=>`<div class="entry"><div><strong>${w.name}</strong><small>${w.min} min · ${w.note||'Workout'}</small></div><span>🏋️</span></div>`).join(''):'<div class="empty">No workout logged today.</div>';document.getElementById('mealList').innerHTML=x.meals.length?x.meals.slice().reverse().map(m=>`<div class="entry"><div><strong>${m.name}</strong><small>${m.type}</small></div><span>${m.cal} kcal</span></div>`).join(''):'<div class="empty">No meals logged today.</div>';document.getElementById('calTotal').textContent=c+' kcal';document.getElementById('calBar').style.width=pct(c,db.goals.calories)+'%';document.getElementById('progressCards').innerHTML=metric('🔥','Workout',mins+' min','30 min',pct(mins,30))+metric('💦','Hydration',x.water+' ml',db.goals.water+' ml',pct(x.water,db.goals.water));
  ['Steps','Water','Calories','Sleep'].forEach(k=>document.getElementById('g'+k).value=db.goals[k.toLowerCase()]); renderHistory();}
 function renderHistory(){let dates=[];for(let i=6;i>=0;i--){let z=new Date();z.setDate(z.getDate()-i);dates.push(z.toISOString().slice(0,10))}document.getElementById('chart').innerHTML=dates.map(k=>`<i title="${k}" style="height:${Math.max(8,pct((db.days[k]||{}).steps||0,db.goals.steps))}%"></i>`).join('');document.getElementById('history').innerHTML=dates.slice().reverse().map(k=>{let x=db.days[k]||{},cal=(x.meals||[]).reduce((a,b)=>a+(+b.cal||0),0);return `<div class="entry"><div><strong>${k===day()?'Today':k}</strong><small>${x.steps||0} steps · ${x.water||0} ml</small></div><span>${cal} kcal</span></div>`}).join('')}
-function quickWater(){d().water+=250;save()} function editSteps(){let v=prompt("Today's steps",d().steps);if(v!==null&&!isNaN(v)){d().steps=Math.max(0,+v);save()}} function saveGoals(){db.goals={steps:+gSteps.value||10000,water:+gWater.value||2500,calories:+gCalories.value||2200,sleep:+gSleep.value||8};save();alert('Goals saved')}
+function quickWater(){d().water+=250;save()} function editSteps(){let v=prompt("Today's steps",d().steps);if(v!==null&&!isNaN(v)){d().steps=Math.max(0,+v);save()}} function saveGoals(){
+ let vals={steps:+gSteps.value,water:+gWater.value,calories:+gCalories.value,sleep:+gSleep.value,protein:+gProtein.value,carbs:+gCarbs.value,fat:+gFat.value};
+ if(vals.steps<100||vals.steps>100000)return notify('Check steps goal');
+ if(vals.water<250||vals.water>10000)return notify('Check water goal');
+ if(vals.calories<500||vals.calories>10000)return notify('Check calorie goal');
+ if(vals.sleep<1||vals.sleep>24)return notify('Check sleep goal');
+ if([vals.protein,vals.carbs,vals.fat].some(v=>v<0||v>1000))return notify('Check macro goals');
+ db.goals={...db.goals,...vals};save();notify('Goals saved');
+}
 function resetToday(){if(confirm("Reset today's tracking data?")){db.days[day()]={steps:0,water:0,sleep:0,meals:[],workouts:[]};save()}}
 function openModal(type){modal.classList.add('show');let body='';if(type==='meal'){modalTitle.textContent='Log meal';body=`<div class="form"><select id="mtype"><option>Breakfast</option><option>Lunch</option><option>Dinner</option><option>Snack</option></select><input id="mname" placeholder="Meal / food"><input id="mcal" type="number" placeholder="Calories"><button class="primary" onclick="addMeal()">Save meal</button></div>`}else if(type==='workout'){modalTitle.textContent='Log workout';body=`<div class="form"><input id="wname" placeholder="Workout e.g. Push day"><input id="wmin" type="number" placeholder="Duration (minutes)"><input id="wnote" placeholder="Notes / sets / distance"><button class="primary" onclick="addWorkout()">Save workout</button></div>`}else{modalTitle.textContent='Log sleep';body=`<div class="form"><input id="shours" type="number" step="0.25" placeholder="Hours slept"><button class="primary" onclick="addSleep()">Save sleep</button></div>`}modalBody.innerHTML=body}function closeModal(){modal.classList.remove('show')}function addMeal(){if(!mname.value)return alert('Enter a meal');d().meals.push({type:mtype.value,name:mname.value,cal:+mcal.value||0});closeModal();save()}function addWorkout(){if(!wname.value)return alert('Enter workout name');d().workouts.push({name:wname.value,min:+wmin.value||0,note:wnote.value});closeModal();save()}function addSleep(){d().sleep=Math.max(0,+shours.value||0);closeModal();save()}
 // v1.1 upgrade layer
@@ -244,6 +252,19 @@ const pageTitleEl=document.getElementById('pageTitle'); const todayEl=document.g
  syncHealth() should return JSON/string:
  {steps, sleepHours, weightKg, exercises:[...], syncedAt}
 */
+function fitDailyNativeResultV20(kind,payload){
+ let data=parseNativeV19(payload)||{};
+ if(kind==='permissions'){
+  ['Steps','Sleep','Exercise','Weight'].forEach(k=>{let e=document.getElementById('perm'+k),ok=!!data[k.toLowerCase()];if(e){e.textContent=ok?'Allowed':'Not allowed';e.classList.toggle('ready',ok)}});
+  let m=document.getElementById('syncMessage');if(m)m.textContent='Health Connect permissions updated.';notify('Permissions updated');
+ }else if(kind==='sync'){
+  mergeHealthV19(data);renderV19();let m=document.getElementById('syncMessage');if(m)m.textContent='Health Connect sync completed.';notify('Health synced');
+ }else if(kind==='error'){
+  let m=document.getElementById('syncMessage');if(m)m.textContent=data.message||'Native operation failed.';notify('Health operation failed');
+ }else if(kind==='notification'){
+  let m=document.getElementById('reminderStatus');if(m)m.textContent=data.allowed?'Notifications allowed':'Notifications not allowed';
+ }
+}
 function nativeBridgeV19(){return window.FitDailyAndroid||null}
 function setBridgeUiV19(connected){
  let dot=document.getElementById('nativeDot'),bs=document.getElementById('bridgeStatus'),ns=document.getElementById('nativeStatus'),hc=document.getElementById('hcSourceStatus');
@@ -252,8 +273,8 @@ function setBridgeUiV19(connected){
 }
 function parseNativeV19(v){try{return typeof v==='string'?JSON.parse(v):v}catch(e){return null}}
 function requestHealthPermissionsV19(){
- let b=nativeBridgeV19();if(!b||typeof b.requestHealthPermissions!=='function'){alert('Health Connect permissions become available in the Android APK wrapper.');return}
- try{let r=parseNativeV19(b.requestHealthPermissions())||{};['Steps','Sleep','Exercise','Weight'].forEach(k=>{let e=document.getElementById('perm'+k);if(e){let ok=!!r[k.toLowerCase()];e.textContent=ok?'Allowed':'Pending';e.classList.toggle('ready',ok)}})}catch(e){alert('Could not request Health Connect permissions.')}
+ let b=nativeBridgeV19();if(!b||typeof b.requestHealthPermissions!=='function'){notify('Health Connect needs Android app');return}
+ try{['Steps','Sleep','Exercise','Weight'].forEach(k=>{let e=document.getElementById('perm'+k);if(e)e.textContent='Requesting…'});b.requestHealthPermissions();let m=document.getElementById('syncMessage');if(m)m.textContent='Complete the Android Health Connect permission screen.'}catch(e){notify('Permission request failed')}
 }
 function mergeHealthV19(data){
  if(!data)return;let x=d();
@@ -264,14 +285,18 @@ function mergeHealthV19(data){
  db.lastHealthSync=data.syncedAt||new Date().toISOString();save();
 }
 function syncHealthV19(){
- let b=nativeBridgeV19();if(!b||typeof b.syncHealth!=='function'){alert('Native Health Connect sync requires the Android wrapper. Your manual tracking continues normally.');return}
- try{let result=parseNativeV19(b.syncHealth());mergeHealthV19(result);let m=document.getElementById('syncMessage');if(m)m.textContent='Health Connect data synced into today’s FitDaily record.'}catch(e){alert('Health sync failed.')}
+ let b=nativeBridgeV19();if(!b||typeof b.syncHealth!=='function'){notify('Health Connect needs Android app');return}
+ try{let m=document.getElementById('syncMessage');if(m)m.textContent='Syncing Health Connect…';b.syncHealth()}catch(e){notify('Health sync failed')}
 }
 function pushNativeRemindersV19(){
  let b=nativeBridgeV19();if(b&&typeof b.scheduleReminders==='function')try{b.scheduleReminders(JSON.stringify(db.reminders||{}))}catch(e){}
 }
 function renderV19(){
- let connected=!!nativeBridgeV19();setBridgeUiV19(connected);let l=document.getElementById('lastSyncText');if(l)l.textContent=db.lastHealthSync?('Last '+new Date(db.lastHealthSync).toLocaleString()):'Never synced';
+ let connected=!!nativeBridgeV19();setBridgeUiV19(connected);
+ let hp=document.getElementById('healthPlatformStatus');if(hp){hp.textContent=connected?'Native ready':'PWA mode';hp.classList.toggle('ready',connected)}
+ let install=document.getElementById('installArea');if(install)install.style.display=connected?'none':'block';
+ let off=document.getElementById('offlineStatus');if(off)off.textContent=connected?'Bundled in APK':'PWA cache';
+ let l=document.getElementById('lastSyncText');if(l)l.textContent=db.lastHealthSync?('Last '+new Date(db.lastHealthSync).toLocaleString()):'Never synced';
 }
 
 let onboardStepV18=0,deferredInstallPrompt=null;
@@ -289,8 +314,8 @@ function prevOnboardV18(){onboardStepV18=Math.max(0,onboardStepV18-1);showOnboar
 function finishOnboardV18(){
  db.goals.steps=+document.getElementById('onSteps').value||10000;db.goals.water=+document.getElementById('onWater').value||2500;db.goals.calories=+document.getElementById('onCalories').value||2200;db.goals.sleep=+document.getElementById('onSleep').value||8;db.profile.onboarded=true;localStorage.setItem(KEY,JSON.stringify(db));document.getElementById('onboardV18').classList.remove('show');render();
 }
-function saveProfileV18(){ensureV18();db.profile.name=document.getElementById('v18Name').value.trim();db.profile.goal=document.getElementById('v18Goal').value;db.profile.onboarded=true;save()}
-function saveRemindersV18(){ensureV18();db.reminders={workout:document.getElementById('remWorkout').value,water:document.getElementById('remWater').value,sleep:document.getElementById('remSleep').value};save();pushNativeRemindersV19();alert('Reminder times saved')}
+function saveProfileV18(){ensureV18();let n=document.getElementById('v18Name').value.trim();if(!n)return notify('Enter your name');db.profile.name=n;db.profile.goal=document.getElementById('v18Goal').value;db.profile.onboarded=true;save();notify('Profile saved')}
+function saveRemindersV18(){ensureV18();db.reminders={workout:document.getElementById('remWorkout').value,water:document.getElementById('remWater').value,sleep:document.getElementById('remSleep').value};save();pushNativeRemindersV19();notify('Reminder times saved')}
 function renderV18(){
  ensureV18();let n=db.profile.name||'';
  let pn=document.getElementById('profileName');if(pn)pn.textContent=n;
@@ -343,7 +368,7 @@ function deleteCustomTemplateV17(i){if(confirm('Delete this template?')){db.cust
 function startCustomTemplateV17(i){let t=db.customTemplates[i];if(!t)return;document.getElementById('workoutBuilder').classList.add('show');document.getElementById('sessionName').value=t.name;document.getElementById('builderTitle').textContent=t.name;document.getElementById('exerciseBuilder').innerHTML='';exerciseSeq=0;t.exercises.forEach(e=>addExerciseBlock(e,3,10))}
 function renderCustomTemplatesV17(){let e=document.getElementById('customTemplateList');if(!e)return;ensureV17();e.innerHTML=db.customTemplates.length?db.customTemplates.map((t,i)=>`<div class="entry"><div><strong>${t.name}</strong><small>${t.exercises.join(' · ')}</small></div><div><button class="tiny-btn" onclick="startCustomTemplateV17(${i})">Start</button><button class="delete-mini" onclick="deleteCustomTemplateV17(${i})">×</button></div></div>`).join(''):'<div class="empty">No custom templates yet.</div>'}
 function exportDataV17(){
- let payload={app:'FitDaily',version:'2.0',exportedAt:new Date().toISOString(),data:db},blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='fitdaily-backup-'+day()+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500);
+ let payload={app:'FitDaily',version:'2.2',exportedAt:new Date().toISOString(),data:db},blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='fitdaily-backup-'+day()+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500);
 }
 function importDataV17(input){
  let f=input.files&&input.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let p=JSON.parse(r.result),data=p.data||p;if(!data||typeof data!=='object'||!data.days||!data.goals)throw Error();if(confirm('Restore this FitDaily backup? Current local data will be replaced.')){db=data;ensureV17();localStorage.setItem(KEY,JSON.stringify(db));location.reload()}}catch(e){alert('Invalid FitDaily backup file')}input.value=''};r.readAsText(f);
