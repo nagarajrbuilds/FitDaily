@@ -191,15 +191,18 @@ class MainActivity : AppCompatActivity() {
     private fun scheduleFromJson(json:String) {
         val o=runCatching { JSONObject(json) }.getOrNull() ?: return
         listOf("workout","water","sleep").forEachIndexed { i,key ->
+            val alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+            val intent = Intent(this,ReminderReceiver::class.java).putExtra("type",key)
+            val pi=PendingIntent.getBroadcast(this,100+i,intent,PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+            alarmManager.cancel(pi)
             val time=o.optString(key)
             if(time.matches(Regex("\\d{2}:\\d{2}"))) {
                 val (h,m)=time.split(":").map{it.toInt()}
                 val cal=java.util.Calendar.getInstance().apply {
-                    set(java.util.Calendar.HOUR_OF_DAY,h); set(java.util.Calendar.MINUTE,m); set(java.util.Calendar.SECOND,0)
+                    set(java.util.Calendar.HOUR_OF_DAY,h); set(java.util.Calendar.MINUTE,m); set(java.util.Calendar.SECOND,0); set(java.util.Calendar.MILLISECOND,0)
                     if(timeInMillis<=System.currentTimeMillis()) add(java.util.Calendar.DAY_OF_YEAR,1)
                 }
-                val pi=PendingIntent.getBroadcast(this,100+i,Intent(this,ReminderReceiver::class.java).putExtra("type",key),PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
-                (getSystemService(ALARM_SERVICE) as AlarmManager).setInexactRepeating(AlarmManager.RTC_WAKEUP,cal.timeInMillis,AlarmManager.INTERVAL_DAY,pi)
+                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,cal.timeInMillis,AlarmManager.INTERVAL_DAY,pi)
             }
         }
     }
