@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         runOnUiThread { web.evaluateJavascript("fitDailyNativeResultV20("+JSONObject.quote(kind)+","+JSONObject.quote(obj.toString())+")", null) }
     }
     inner class Bridge {
-        @JavascriptInterface fun getStatus() = """{"connected":true,"version":"2.3","platform":"android"}"""
+        @JavascriptInterface fun getStatus() = """{"connected":true,"version":"2.4","platform":"android"}"""
         @JavascriptInterface fun requestHealthPermissions(): String {
             runOnUiThread { permissionLauncher.launch(permissions) }
             return """{"requested":true}"""
