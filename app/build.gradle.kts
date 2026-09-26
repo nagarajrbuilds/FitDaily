@@ -16,6 +16,10 @@ android {
     }
     namespace = "com.fitdaily.app"
     compileSdk = 36
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
     defaultConfig {
         applicationId = "com.fitdaily.app"
         minSdk = 26
@@ -36,4 +40,8 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.10.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
     implementation("androidx.health.connect:connect-client:1.1.0")
+}
+
+kotlin {
+    jvmToolchain(17)
 }
