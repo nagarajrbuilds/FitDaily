@@ -8,11 +8,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
-<title>FitDaily v2.4</title>
+<title>FitDaily v2.5</title>
 <style>
 :root{--bg:#07101d;--card:#111d2e;--card2:#16243a;--text:#f6f8fc;--muted:#91a0b8;--accent:#6ee7b7;--accent2:#60a5fa;--warn:#fbbf24;--danger:#fb7185;--line:#263750;--r:22px}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:linear-gradient(180deg,#07101d,#0b1525);color:var(--text);min-height:100vh}.app{max-width:560px;margin:auto;min-height:100vh;padding-bottom:92px}.top{padding:22px 18px 10px;position:sticky;top:0;background:rgba(7,16,29,.92);backdrop-filter:blur(16px);z-index:4}.row{display:flex;align-items:center;justify-content:space-between;gap:12px}.hello{font-size:13px;color:var(--muted)}h1{font-size:26px;margin:2px 0 0}.date{font-size:13px;color:var(--muted)}main{padding:10px 16px}.hero{background:linear-gradient(135deg,#16304a,#12362f);padding:18px;border-radius:28px;box-shadow:0 12px 40px #0005}.score{font-size:42px;font-weight:800}.sub{color:#c6d2df;font-size:13px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:15px}.metric{font-size:23px;font-weight:800;margin:8px 0 2px}.label{font-size:13px;color:var(--muted)}.bar{height:8px;background:#243249;border-radius:20px;overflow:hidden;margin-top:10px}.fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:20px}.section{margin-top:22px}.section h2{font-size:18px;margin:0 0 12px}.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.qbtn{border:0;border-radius:18px;padding:13px 5px;background:var(--card2);color:white;font-weight:700;font-size:12px}.qbtn span{display:block;font-size:23px;margin-bottom:5px}.entry{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.entry:last-child{border-bottom:0}.entry strong{display:block}.entry small{color:var(--muted)}button{cursor:pointer}.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(560px,100%);display:grid;grid-template-columns:repeat(7,1fr);background:rgba(11,21,37,.96);border-top:1px solid var(--line);padding:8px 5px calc(8px + env(safe-area-inset-bottom));backdrop-filter:blur(18px);z-index:5}.nav{background:none;border:0;color:var(--muted);font-size:11px;padding:7px 2px}.nav b{display:block;font-size:21px;margin-bottom:2px}.nav.active{color:var(--accent)}.page{display:none}.page.active{display:block}.fab{border:0;background:var(--accent);color:#052016;border-radius:16px;padding:11px 15px;font-weight:800}.form{display:grid;gap:12px}.form input,.form select{width:100%;background:#0b1627;border:1px solid var(--line);color:white;padding:14px;border-radius:14px;font-size:16px}.primary{border:0;background:var(--accent);color:#062218;padding:14px;border-radius:15px;font-weight:800;font-size:15px}.secondary{border:1px solid var(--line);background:var(--card2);color:white;padding:11px;border-radius:14px}.pill{font-size:12px;background:#20334c;padding:5px 9px;border-radius:999px;color:#bcd0e5}.modal{position:fixed;inset:0;background:#0009;display:none;align-items:flex-end;z-index:10}.modal.show{display:flex}.sheet{width:min(560px,100%);margin:auto;background:#101c2d;border-radius:28px 28px 0 0;padding:20px 18px 28px;max-height:82vh;overflow:auto}.sheet h3{margin-top:0}.close{background:none;border:0;color:white;font-size:24px}.empty{color:var(--muted);text-align:center;padding:22px}.chart{display:flex;align-items:end;gap:7px;height:100px;padding-top:10px}.chart i{flex:1;background:linear-gradient(var(--accent2),var(--accent));border-radius:8px 8px 3px 3px;min-height:8px}.goalrow{display:grid;grid-template-columns:1fr 90px;gap:10px;align-items:center;margin:10px 0}.goalrow input{background:#0b1627;border:1px solid var(--line);color:#fff;padding:10px;border-radius:12px;width:100%}
 
-/* FitDaily v2.4 visual upgrade */
+/* FitDaily v2.5 visual upgrade */
 :root{--purple:#a78bfa;--orange:#fb923c;--cyan:#22d3ee}
 body{background:
  radial-gradient(circle at 85% 0%,rgba(96,165,250,.12),transparent 28%),
@@ -43,7 +43,7 @@ body{background:
 @media(min-width:700px){.app{max-width:620px}.bottom{width:min(620px,100%)}}
 
 
-/* FitDaily v2.4 workout upgrade */
+/* FitDaily v2.5 workout upgrade */
 .workout-hero{background:linear-gradient(135deg,#182842,#20354c);border:1px solid var(--line);border-radius:26px;padding:17px;margin-bottom:14px}
 .workout-hero h3{margin:0 0 5px;font-size:20px}.workout-hero p{margin:0;color:var(--muted);font-size:12px}
 .template-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}
@@ -62,7 +62,7 @@ body{background:
 .delete-mini{border:0;background:transparent;color:var(--danger);font-size:17px;padding:5px}
 
 
-/* FitDaily v2.4 nutrition upgrade */
+/* FitDaily v2.5 nutrition upgrade */
 .nutri-hero{background:linear-gradient(135deg,#173329,#182b42);border:1px solid var(--line);border-radius:26px;padding:17px;margin-bottom:14px}
 .nutri-hero h3{margin:0 0 4px}.macro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
 .macro{background:rgba(255,255,255,.04);border-radius:15px;padding:11px 8px;text-align:center}.macro strong{font-size:17px;display:block}.macro small{font-size:10px;color:var(--muted)}
@@ -74,7 +74,7 @@ body{background:
 .quickfood-title{margin:18px 0 9px;font-size:14px}.macro-inputs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.macro-inputs label{font-size:10px;color:var(--muted)}.macro-inputs input{margin-top:4px}
 
 
-/* FitDaily v2.4 recovery & activity upgrade */
+/* FitDaily v2.5 recovery & activity upgrade */
 .health-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
 .health-tab{border:1px solid var(--line);background:#122036;color:var(--muted);padding:11px 5px;border-radius:14px;font-weight:800}
 .health-tab.active{background:rgba(110,231,183,.1);color:var(--accent);border-color:rgba(110,231,183,.25)}
@@ -90,7 +90,7 @@ body{background:
 .timeline{margin-top:12px}.timeline-row{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.timeline-row:last-child{border:0}.time-dot{width:9px;height:9px;border-radius:50%;background:var(--cyan);flex:0 0 auto}.timeline-row strong{font-size:13px}.timeline-row small{display:block;color:var(--muted)}
 
 
-/* FitDaily v2.4 progress & analytics */
+/* FitDaily v2.5 progress & analytics */
 .range-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
 .range-btn{border:1px solid var(--line);background:#122036;color:var(--muted);padding:11px;border-radius:14px;font-weight:800}
 .range-btn.active{background:rgba(96,165,250,.12);color:var(--accent2);border-color:rgba(96,165,250,.3)}
@@ -103,7 +103,7 @@ body{background:
 .weight-entry{display:grid;grid-template-columns:1fr auto;gap:8px}.weight-entry input{background:#0b1627;border:1px solid var(--line);color:#fff;padding:13px;border-radius:13px;font-size:16px}.weight-chart{height:120px;position:relative;margin-top:12px;display:flex;align-items:flex-end;gap:7px}.weight-bar{flex:1;border-radius:7px 7px 2px 2px;background:linear-gradient(var(--accent),var(--accent2));min-height:4px}.delta-up{color:var(--warn)}.delta-down{color:var(--accent)}
 
 
-/* FitDaily v2.4 history, customization & data tools */
+/* FitDaily v2.5 history, customization & data tools */
 .history-hero{background:linear-gradient(135deg,#182a43,#17352f);border:1px solid var(--line);border-radius:25px;padding:16px}
 .calendar-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.calendar-head button{border:0;background:#17263c;color:#fff;border-radius:11px;padding:8px 12px}.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.dow{text-align:center;color:var(--muted);font-size:9px;padding:5px 0}.cal-day{aspect-ratio:1;border:1px solid transparent;background:#101d30;color:#fff;border-radius:11px;font-size:11px;position:relative}.cal-day.has-data:after{content:"";position:absolute;width:4px;height:4px;border-radius:50%;background:var(--accent);bottom:4px;left:50%;transform:translateX(-50%)}.cal-day.selected{border-color:var(--accent);color:var(--accent);background:rgba(110,231,183,.08)}.cal-day.today{box-shadow:inset 0 0 0 1px var(--accent2)}
 .day-summary{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.day-tile{background:#101d30;border:1px solid var(--line);border-radius:15px;padding:11px}.day-tile strong{display:block;font-size:17px}.day-tile small{color:var(--muted);font-size:9px}
@@ -115,7 +115,7 @@ body{background:
 .light-mode .top,.light-mode .bottom{background:rgba(242,247,251,.96)}.light-mode .hero,.light-mode .health-hero,.light-mode .nutri-hero,.light-mode .workout-hero,.light-mode .history-hero{color:#f6f8fc}.light-mode .form input,.light-mode .form select,.light-mode .goalrow input,.light-mode .weight-entry input,.light-mode .note-area{background:#f6f9fc;color:#102033}.light-mode .card,.light-mode .analytics-card,.light-mode .day-tile,.light-mode .achievement{box-shadow:0 6px 18px rgba(28,45,65,.06)}.light-mode .cal-day{background:#f8fafc;color:#20344a}.light-mode .sheet{background:#fff;color:#102033}
 
 
-/* FitDaily v2.4 installable app experience */
+/* FitDaily v2.5 installable app experience */
 .profile-chip{display:flex;align-items:center;gap:10px}.avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#07101d;font-weight:900}
 .install-card{background:linear-gradient(135deg,#17364a,#18352e);border:1px solid rgba(110,231,183,.22);border-radius:20px;padding:14px;margin-top:12px}.install-card strong{display:block}.install-card small{color:#bfd0dc}.install-card button{margin-top:10px;width:100%}
 .status-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.status-row:last-child{border:0}.status-pill{font-size:10px;border-radius:999px;padding:5px 8px;background:#21334a;color:var(--muted)}.status-pill.ready{background:rgba(110,231,183,.12);color:var(--accent)}
@@ -125,7 +125,7 @@ body{background:
 @media(max-width:420px){.bottom{overflow-x:auto;grid-template-columns:repeat(7,minmax(56px,1fr))}.nav{min-width:56px}}
 
 
-/* FitDaily v2.4 Android readiness */
+/* FitDaily v2.5 Android readiness */
 .sync-hero{background:linear-gradient(135deg,#17364b,#18362e);border:1px solid rgba(110,231,183,.2);border-radius:22px;padding:15px;margin-top:12px}
 .sync-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.sync-dot{width:10px;height:10px;border-radius:50%;background:var(--muted);display:inline-block;margin-right:6px}.sync-dot.connected{background:var(--accent);box-shadow:0 0 12px rgba(110,231,183,.6)}
 .permission-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.permission-card{background:#101d30;border:1px solid var(--line);border-radius:15px;padding:11px}.permission-card strong{font-size:12px;display:block}.permission-card small{color:var(--muted);font-size:9px}.permission-card .status-pill{display:inline-block;margin-top:7px}
@@ -134,10 +134,10 @@ body{background:
 .source-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}.source-row:last-child{border:0}.source-row strong{font-size:12px}.source-row small{display:block;color:var(--muted)}
 
 
-/* FitDaily v2.4 product UI */
+/* FitDaily v2.5 product UI */
 .profile-page{padding-bottom:22px}.profile-hero{display:flex;align-items:center;gap:14px;padding:18px;background:linear-gradient(135deg,#153348,#11362e);border:1px solid #28506a;border-radius:26px;margin-bottom:24px;box-shadow:0 14px 35px #0003}.profile-avatar{width:62px;height:62px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#07101d;font-size:25px;font-weight:900}.profile-identity{flex:1;min-width:0}.profile-identity span{font-size:10px;letter-spacing:1.5px;color:#9fb2c8}.profile-identity h2{margin:3px 0!important;font-size:21px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.profile-identity p{margin:0;color:var(--muted);font-size:12px}.icon-edit{width:40px;height:40px;border-radius:13px;border:1px solid var(--line);background:#14243a;color:var(--text);font-size:18px}.settings-section{margin-top:23px}.settings-title{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:0 3px 9px}.settings-title h3{font-size:16px;margin:0}.settings-title p{font-size:11px;color:var(--muted);margin:3px 0 0}.settings-card{background:linear-gradient(180deg,#111f32,#101b2c);border:1px solid var(--line);border-radius:20px;padding:14px}.field-label{display:block;color:var(--muted);font-size:11px;font-weight:700;margin:2px 2px 6px}.settings-card>input,.settings-card>select{margin-bottom:12px}.full-btn{width:100%;min-height:45px}.goal-grid-v23{display:grid;grid-template-columns:1fr 1fr;gap:10px}.goal-grid-v23 label{background:#0c1828;border:1px solid #22354f;border-radius:15px;padding:10px}.goal-grid-v23 label span{display:block;font-size:11px;color:#b7c5d7;margin-bottom:7px}.goal-grid-v23 label small{color:var(--muted)}.goal-grid-v23 input{width:100%;margin:0;background:transparent;border:0;padding:2px;font-size:18px;font-weight:800}.goal-save-v23{margin-top:9px}.health-summary{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid var(--line)}.health-summary>div{display:flex;align-items:center;gap:10px}.health-summary small{display:block;color:var(--muted);margin-top:2px}.health-icon{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:#18352f;color:var(--accent);font-size:19px}.permission-list{margin:6px 0}.permission-list>div{display:flex;justify-content:space-between;align-items:center;padding:9px 2px;border-bottom:1px solid #1d2c41}.permission-list>div:last-child{border:0}.permission-list span{font-size:12px}.permission-list b{font-weight:600}.sync-note{font-size:10px;line-height:1.45;color:var(--muted);background:#0c1828;border-radius:11px;padding:9px;margin-top:10px}.last-sync{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:10px;padding-top:10px}.last-sync strong{color:#b9c8da;text-align:right}.reminder-list-v23 label{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}.reminder-list-v23 label>div{display:flex;align-items:center;gap:10px}.reminder-list-v23 label>div>span{font-size:20px}.reminder-list-v23 small{display:block;color:var(--muted);font-size:10px;margin-top:2px}.reminder-list-v23 input{width:112px;margin:0}.about-v23>div{display:flex;justify-content:space-between;padding:10px 2px;border-bottom:1px solid var(--line);font-size:12px}.about-v23>div:last-child{border:0}.about-v23 span{color:var(--muted)}.danger-zone{margin-top:24px;padding:14px;border:1px solid rgba(251,113,133,.22);background:rgba(251,113,133,.04);border-radius:20px}.danger-zone small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.danger-actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-top:11px}.danger-actions button{font-size:10px;min-height:40px}.danger-btn{border:1px solid rgba(251,113,133,.35);background:rgba(251,113,133,.1);color:#fda4af;border-radius:12px;font-weight:700}.bottom{overflow-x:auto;scrollbar-width:none}.bottom::-webkit-scrollbar{display:none}.nav{min-width:56px}.page>h2:first-child{letter-spacing:-.2px}@media(max-width:380px){.goal-grid-v23{grid-template-columns:1fr}.danger-actions{grid-template-columns:1fr}.profile-avatar{width:54px;height:54px}.bottom{justify-content:start}}
 
-/* FitDaily v2.4 light-theme and interaction stabilization */
+/* FitDaily v2.5 light-theme and interaction stabilization */
 .light-mode{--bg:#f4f7fb;--card:#ffffff;--card2:#eef3f8;--text:#132238;--muted:#66758a;--line:#dbe3ec;background:#f4f7fb;color:var(--text)}
 .light-mode .app{background:#f4f7fb}
 .light-mode .top{background:rgba(244,247,251,.96);border-bottom:1px solid #e2e8f0}
@@ -159,6 +159,42 @@ body{background:
 .light-mode .install-card{background:linear-gradient(135deg,#e1f7f0,#e7f1fb);border-color:#c9e4dc;color:#132238}.light-mode .install-card small{color:#66758a}
 .light-mode .danger-zone{background:#fff7f8;border-color:#f1cbd2}.light-mode .danger-btn{background:#fff0f2;color:#b4233d;border-color:#efbdc6}
 .light-mode .sheet{background:#fff;color:#132238}
+
+/* FitDaily v2.5 polished light system */
+.light-mode body,.light-mode{background:#f6f8fb!important;color:#17253a}
+.light-mode .app{background:#f6f8fb}
+.light-mode main{background:#f6f8fb}
+.light-mode .top{background:rgba(246,248,251,.97)!important;border-bottom:1px solid #e6ebf1}
+.light-mode .bottom{background:rgba(255,255,255,.98)!important;border-top:1px solid #e1e7ee;box-shadow:0 -8px 24px rgba(23,37,58,.07)}
+.light-mode .nav{color:#728197}.light-mode .nav.active{color:#07866a;background:#e5f8f2}
+.light-mode .card,.light-mode .settings-card,.light-mode .analytics-card,.light-mode .achievement,.light-mode .day-tile,.light-mode .exercise-card{background:#fff!important;color:#17253a!important;border-color:#e1e7ee!important;box-shadow:0 4px 14px rgba(28,48,72,.045)}
+.light-mode .hero,.light-mode .profile-hero,.light-mode .health-hero,.light-mode .workout-hero,.light-mode .nutri-hero,.light-mode .history-hero{background:linear-gradient(135deg,#e7f8f3,#eaf2fc)!important;color:#17253a!important;border-color:#d8e8e7!important;box-shadow:none}
+.light-mode .hero .sub,.light-mode .workout-hero p,.light-mode .profile-identity p{color:#63758b!important}
+.light-mode h1,.light-mode h2,.light-mode h3,.light-mode h4,.light-mode strong,.light-mode .metric,.light-mode .big-stat{color:#17253a}
+.light-mode .label,.light-mode small,.light-mode .empty,.light-mode .settings-title p,.light-mode .app-info{color:#6d7d91!important}
+.light-mode input,.light-mode select,.light-mode textarea,.light-mode .form input,.light-mode .form select,.light-mode .weight-entry input,.light-mode .note-area,.light-mode .set-grid input,.light-mode .reminder-list-v23 input{background:#f8fafc!important;color:#17253a!important;border-color:#dce4ed!important}
+.light-mode input::placeholder,.light-mode textarea::placeholder{color:#93a0b1}
+.light-mode .goal-grid-v23 label,.light-mode .permission-card,.light-mode .mini,.light-mode .macro,.light-mode .sync-note{background:#f8fafc!important;color:#17253a!important;border-color:#e1e7ee!important}
+.light-mode .goal-grid-v23 input{background:transparent!important;border:0!important}
+.light-mode .primary,.light-mode .fab{background:#36d7aa!important;color:#073a2d!important;box-shadow:none}
+.light-mode .secondary,.light-mode .template,.light-mode .food-btn,.light-mode .quick-amounts button,.light-mode .health-tab,.light-mode .range-btn,.light-mode .timer-actions button,.light-mode .tiny-btn,.light-mode .calendar-head button{background:#eef3f7!important;color:#263a52!important;border-color:#dce4ec!important}
+.light-mode .health-tab.active,.light-mode .range-btn.active{background:#e3f7f1!important;color:#08795f!important;border-color:#bfe9dc!important}
+.light-mode .status-pill,.light-mode .pill,.light-mode .session-badge{background:#edf2f6!important;color:#5d6f84!important}
+.light-mode .status-pill.ready{background:#dff7ef!important;color:#08775d!important}
+.light-mode .bar{background:#e5ebf1}.light-mode .ring{background:conic-gradient(var(--accent) calc(var(--p)*1%),#e4eaf0 0)}.light-mode .ring:after,.light-mode .cal-ring:after{background:#fff}
+.light-mode .cal-day{background:#fff!important;color:#33485f!important;border-color:#edf1f5}.light-mode .cal-day.selected{background:#e7f8f3!important;color:#08795f!important;border-color:#7bd8bd}
+.light-mode .setting-row,.light-mode .entry,.light-mode .permission-list>div,.light-mode .about-v23>div,.light-mode .health-summary,.light-mode .timeline-row{border-color:#e7ecf1!important}
+.light-mode .install-card{background:#e9f7f3!important;color:#17253a!important;border-color:#cae9df!important}.light-mode .install-card small{color:#63758b!important}
+.light-mode .danger-zone{background:#fff8f9!important;border-color:#f2d3d9!important}.light-mode .danger-btn{background:#fff0f2!important;color:#a8243c!important;border-color:#edc3cb!important}
+.light-mode .sheet{background:#fff!important;color:#17253a}.light-mode .close{color:#17253a}
+.light-mode .choice{background:#f4f7fa!important;color:#17253a!important;border-color:#dce4ed!important}
+.light-mode .timerbox{background:#eef5fa!important;border-color:#dce4ed!important}
+.light-mode .sleep-moon{background:linear-gradient(135deg,#e8eefb,#f0eafa)!important}
+.light-mode .onboard{background:#f6f8fb!important;color:#17253a}
+.light-mode .profile-avatar{color:#073a2d}
+.light-mode .icon-edit{background:#fff!important;color:#263a52!important;border-color:#dce4ed!important}
+.light-mode .switch{background:#d4dde7}.light-mode .switch.on{background:#36d7aa}
+.light-mode .sync-note{line-height:1.5}
 </style>
 <style>
 :root{--purple:#a78bfa} .macrogrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.macro{background:#0b1627;border:1px solid var(--line);border-radius:14px;padding:10px;text-align:center}.macro strong{display:block;font-size:17px}.actions{display:flex;gap:7px}.mini{border:1px solid var(--line);background:#18283d;color:#dbe8f6;border-radius:10px;padding:7px 9px}.danger{color:#fecdd3}.watergrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.waterbtn{padding:12px 6px;border:1px solid var(--line);border-radius:14px;background:#102039;color:#fff}.badge{display:inline-block;font-size:11px;padding:4px 8px;border-radius:999px;background:#233653;color:#d8e8f7}.streak{font-size:28px;font-weight:900}.exercise{padding:10px;border:1px solid var(--line);border-radius:14px;margin-top:8px}.exercise-grid{display:grid;grid-template-columns:1.5fr .7fr .7fr .8fr;gap:6px}.exercise-grid input{padding:10px!important}.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);background:#e7fff5;color:#062218;padding:10px 15px;border-radius:999px;font-weight:800;opacity:0;pointer-events:none;transition:.2s;z-index:30}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -308,18 +344,27 @@ const pageTitleEl=document.getElementById('pageTitle'); const todayEl=document.g
 */
 function fitDailyNativeResultV20(kind,payload){
  let data=parseNativeV19(payload)||{};
- if(kind==='permissions'){
+ if(kind==='status'){
+  let hp=document.getElementById('healthPlatformStatus'),m=document.getElementById('syncMessage');
+  if(hp){hp.textContent=data.available?'Ready':(data.updateRequired?'Update needed':'Unavailable');hp.classList.toggle('ready',!!data.available)}
   ['Steps','Sleep','Exercise','Weight'].forEach(k=>{let e=document.getElementById('perm'+k),ok=!!data[k.toLowerCase()];if(e){e.textContent=ok?'Allowed':'Not allowed';e.classList.toggle('ready',ok)}});
-  let m=document.getElementById('syncMessage');if(m)m.textContent='Health Connect permissions updated.';notify('Permissions updated');
+  if(m)m.textContent=data.available?(data.allGranted?'Health Connect is ready to sync.':'Choose Manage access to allow the health data you want to sync.'):(data.message||'Health Connect is not available on this device.');
+ }else if(kind==='permissions'){
+  healthStatusRequestedV25=false;refreshHealthStatusV25(true);notify('Health access updated ✓');
  }else if(kind==='sync'){
-  mergeHealthV19(data);renderV19();let m=document.getElementById('syncMessage');if(m)m.textContent='Health Connect sync completed.';notify('Health synced');
+  mergeHealthV19(data);renderV19();let m=document.getElementById('syncMessage');if(m)m.textContent='Synced '+(data.steps??0)+' steps'+(data.sleepHours?(', '+Number(data.sleepHours).toFixed(1)+' h sleep'):'')+(data.exerciseMinutes?(', '+data.exerciseMinutes+' active min'):'')+'.';notify('Health synced ✓');
  }else if(kind==='error'){
-  let m=document.getElementById('syncMessage');if(m)m.textContent=data.message||'Native operation failed.';notify('Health operation failed');
+  let m=document.getElementById('syncMessage');if(m)m.textContent=data.message||'Health operation failed.';notify('Health operation failed');
  }else if(kind==='notification'){
-  let m=document.getElementById('reminderStatus');if(m)m.textContent=data.allowed?'Notifications allowed':'Notifications not allowed';
+  let m=document.getElementById('reminderStatus');if(m)m.textContent=data.allowed?'Notifications are allowed':'Notifications are blocked in Android settings';
  }
 }
 function nativeBridgeV19(){return window.FitDailyAndroid||null}
+function refreshHealthStatusV25(force=false){
+ let b=nativeBridgeV19();if(!b||typeof b.checkHealthStatus!=='function')return;
+ if(healthStatusRequestedV25&&!force)return;healthStatusRequestedV25=true;
+ try{b.checkHealthStatus()}catch(e){healthStatusRequestedV25=false}
+}
 function setBridgeUiV19(connected){
  let dot=document.getElementById('nativeDot'),bs=document.getElementById('bridgeStatus'),ns=document.getElementById('nativeStatus'),hc=document.getElementById('hcSourceStatus');
  if(dot)dot.classList.toggle('connected',connected);if(bs){bs.textContent=connected?'Connected':'Not connected';bs.classList.toggle('ready',connected)}
@@ -335,7 +380,7 @@ function mergeHealthV19(data){
  if(Number.isFinite(+data.steps))x.steps=Math.max(+x.steps||0,+data.steps);
  if(Number.isFinite(+data.sleepHours)&&+data.sleepHours>0)x.sleep=+data.sleepHours;
  if(Number.isFinite(+data.weightKg)&&+data.weightKg>0){ensureWeightStore();let existing=db.weights.find(w=>w.date===day());if(existing)existing.value=+data.weightKg;else db.weights.push({date:day(),value:+data.weightKg,time:new Date().toISOString(),source:'health-connect'})}
- if(Array.isArray(data.exercises)){x.healthExercises=data.exercises}
+ if(Array.isArray(data.exercises)){x.healthExercises=data.exercises} if(Number.isFinite(+data.exerciseMinutes))x.healthExerciseMinutes=+data.exerciseMinutes
  db.lastHealthSync=data.syncedAt||new Date().toISOString();save();
 }
 function syncHealthV19(){
@@ -347,7 +392,7 @@ function pushNativeRemindersV19(){
 }
 function renderProfileV23(){ensureV18();let n=db.profile.name||'Your profile',goalMap={general:'General fitness',strength:'Build strength',fatloss:'Fat loss',endurance:'Endurance',wellness:'Health & wellness'};let dn=document.getElementById('profileDisplayNameV23'),ga=document.getElementById('profileGoalLabelV23'),av=document.getElementById('profileAvatarV23');if(dn)dn.textContent=n;if(ga)ga.textContent=goalMap[db.profile.goal]||'General fitness';if(av)av.textContent=(n.trim()[0]||'F').toUpperCase()}
 function renderV19(){
- renderProfileV23();let connected=!!nativeBridgeV19();setBridgeUiV19(connected);
+ renderProfileV23();let connected=!!nativeBridgeV19();setBridgeUiV19(connected);if(connected)refreshHealthStatusV25();
  let hp=document.getElementById('healthPlatformStatus');if(hp){hp.textContent=connected?'Native ready':'PWA mode';hp.classList.toggle('ready',connected)}
  let install=document.getElementById('installArea');if(install)install.style.display=connected?'none':'block';
  let off=document.getElementById('offlineStatus');if(off)off.textContent=connected?'Bundled in APK':'PWA cache';
@@ -369,7 +414,12 @@ function prevOnboardV18(){onboardStepV18=Math.max(0,onboardStepV18-1);showOnboar
 function finishOnboardV18(){
  db.goals.steps=+document.getElementById('onSteps').value||10000;db.goals.water=+document.getElementById('onWater').value||2500;db.goals.calories=+document.getElementById('onCalories').value||2200;db.goals.sleep=+document.getElementById('onSleep').value||8;db.profile.onboarded=true;localStorage.setItem(KEY,JSON.stringify(db));document.getElementById('onboardV18').classList.remove('show');render();
 }
-function saveProfileV18(){ensureV18();let n=document.getElementById('v18Name').value.trim();if(!n)return notify('Enter your name');db.profile.name=n;db.profile.goal=document.getElementById('v18Goal').value;db.profile.onboarded=true;save();notify('Profile saved')}
+function persistSettingsV25(message){
+ localStorage.setItem(KEY,JSON.stringify(db));
+ try{renderV17()}catch(e){console.error('Settings refresh failed',e)}
+ if(message)notify(message);
+}
+function saveProfileV18(){ensureV18();let n=document.getElementById('v18Name').value.trim();if(!n)return notify('Enter your name');db.profile.name=n;db.profile.goal=document.getElementById('v18Goal').value;db.profile.onboarded=true;persistSettingsV25('Profile saved ✓')}
 function saveRemindersV18(){ensureV18();db.reminders={workout:document.getElementById('remWorkout').value,water:document.getElementById('remWater').value,sleep:document.getElementById('remSleep').value};save();pushNativeRemindersV19();notify('Reminder times saved')}
 function renderV18(){
  ensureV18();let n=db.profile.name||'';
@@ -416,14 +466,14 @@ function applyPrefsV17(){ensureV17();document.body.classList.toggle('light-mode'
 function toggleThemeV17(){db.settings.theme=db.settings.theme==='light'?'dark':'light';localStorage.setItem(KEY,JSON.stringify(db));applyPrefsV17()}
 function toggleCompactV17(){db.settings.compact=!db.settings.compact;localStorage.setItem(KEY,JSON.stringify(db));applyPrefsV17()}
 function addCustomTemplateV17(){
- ensureV17();let n=document.getElementById('customTemplateName').value.trim(),raw=document.getElementById('customTemplateExercises').value.trim();if(!n||!raw)return alert('Enter template name and exercises');
- let exercises=raw.split(',').map(x=>x.trim()).filter(Boolean);db.customTemplates.push({name:n,exercises});document.getElementById('customTemplateName').value='';document.getElementById('customTemplateExercises').value='';save();
+ ensureV17();let n=document.getElementById('customTemplateName').value.trim(),raw=document.getElementById('customTemplateExercises').value.trim();if(!n||!raw)return notify('Enter template and exercises');
+ let exercises=raw.split(',').map(x=>x.trim()).filter(Boolean);db.customTemplates.push({name:n,exercises});localStorage.setItem(KEY,JSON.stringify(db));document.getElementById('customTemplateName').value='';document.getElementById('customTemplateExercises').value='';renderCustomTemplatesV17();notify('Template saved ✓');
 }
 function deleteCustomTemplateV17(i){if(confirm('Delete this template?')){db.customTemplates.splice(i,1);save()}}
 function startCustomTemplateV17(i){let t=db.customTemplates[i];if(!t)return;document.getElementById('workoutBuilder').classList.add('show');document.getElementById('sessionName').value=t.name;document.getElementById('builderTitle').textContent=t.name;document.getElementById('exerciseBuilder').innerHTML='';exerciseSeq=0;t.exercises.forEach(e=>addExerciseBlock(e,3,10))}
 function renderCustomTemplatesV17(){let e=document.getElementById('customTemplateList');if(!e)return;ensureV17();e.innerHTML=db.customTemplates.length?db.customTemplates.map((t,i)=>`<div class="entry"><div><strong>${t.name}</strong><small>${t.exercises.join(' · ')}</small></div><div><button class="tiny-btn" onclick="startCustomTemplateV17(${i})">Start</button><button class="delete-mini" onclick="deleteCustomTemplateV17(${i})">×</button></div></div>`).join(''):'<div class="empty">No custom templates yet.</div>'}
 function exportDataV17(){
- let payload={app:'FitDaily',version:'2.4',exportedAt:new Date().toISOString(),data:db},blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='fitdaily-backup-'+day()+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500);
+ let payload={app:'FitDaily',version:'2.5',exportedAt:new Date().toISOString(),data:db},blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='fitdaily-backup-'+day()+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500);
 }
 function importDataV17(input){
  let f=input.files&&input.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let p=JSON.parse(r.result),data=p.data||p;if(!data||typeof data!=='object'||!data.days||!data.goals)throw Error();if(confirm('Restore this FitDaily backup? Current local data will be replaced.')){db=data;ensureV17();localStorage.setItem(KEY,JSON.stringify(db));location.reload()}}catch(e){alert('Invalid FitDaily backup file')}input.value=''};r.readAsText(f);
@@ -622,16 +672,14 @@ function renderWorkoutV13(){
 function deleteWorkoutV13(i){if(confirm('Delete this workout?')){d().workouts.splice(i,1);save()}}
 
 
-const saveGoalsBase=saveGoals;
 saveGoals=function(){
- db.goals.steps=+document.getElementById('gSteps').value||10000;
- db.goals.water=+document.getElementById('gWater').value||2500;
- db.goals.calories=+document.getElementById('gCalories').value||2200;
- db.goals.sleep=+document.getElementById('gSleep').value||8;
- db.goals.protein=+document.getElementById('gProtein').value||150;
- db.goals.carbs=+document.getElementById('gCarbs').value||250;
- db.goals.fat=+document.getElementById('gFat').value||70;
- save();alert('Goals saved');
+ let vals={steps:+gSteps.value,water:+gWater.value,calories:+gCalories.value,sleep:+gSleep.value,protein:+gProtein.value,carbs:+gCarbs.value,fat:+gFat.value};
+ if(!vals.steps||vals.steps<100||vals.steps>100000)return notify('Check steps goal');
+ if(!vals.water||vals.water<250||vals.water>10000)return notify('Check water goal');
+ if(!vals.calories||vals.calories<500||vals.calories>10000)return notify('Check calorie goal');
+ if(!vals.sleep||vals.sleep<1||vals.sleep>24)return notify('Check sleep goal');
+ if([vals.protein,vals.carbs,vals.fat].some(v=>v<0||v>1000))return notify('Check macro goals');
+ db.goals={...db.goals,...vals};persistSettingsV25('Daily goals saved ✓');
 };
 
 function v12Streak(){
