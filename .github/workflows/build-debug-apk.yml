@@ -1,4 +1,4 @@
-name: Build Debug APK
+name: Build Installable APK
 on:
   workflow_dispatch:
 jobs:
@@ -13,9 +13,34 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: "8.11.1"
-      - name: Build APK
-        run: gradle assembleDebug
+      - name: Verify permanent signing secrets
+        env:
+          KEYSTORE_B64: ${{ secrets.FITDAILY_KEYSTORE_B64 }}
+          STORE_PASSWORD: ${{ secrets.FITDAILY_STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.FITDAILY_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.FITDAILY_KEY_PASSWORD }}
+        run: |
+          test -n "$KEYSTORE_B64" || (echo "FITDAILY_KEYSTORE_B64 is missing" && exit 1)
+          test -n "$STORE_PASSWORD" || (echo "FITDAILY_STORE_PASSWORD is missing" && exit 1)
+          test -n "$KEY_ALIAS" || (echo "FITDAILY_KEY_ALIAS is missing" && exit 1)
+          test -n "$KEY_PASSWORD" || (echo "FITDAILY_KEY_PASSWORD is missing" && exit 1)
+      - name: Decode permanent FitDaily signing key
+        env:
+          KEYSTORE_B64: ${{ secrets.FITDAILY_KEYSTORE_B64 }}
+        run: echo "$KEYSTORE_B64" | base64 --decode > "$RUNNER_TEMP/fitdaily.jks"
+      - name: Build permanently signed APK
+        env:
+          FITDAILY_KEYSTORE: ${{ runner.temp }}/fitdaily.jks
+          FITDAILY_STORE_PASSWORD: ${{ secrets.FITDAILY_STORE_PASSWORD }}
+          FITDAILY_KEY_ALIAS: ${{ secrets.FITDAILY_KEY_ALIAS }}
+          FITDAILY_KEY_PASSWORD: ${{ secrets.FITDAILY_KEY_PASSWORD }}
+        run: gradle assembleRelease
+      - name: Verify APK signature
+        run: |
+          APK="app/build/outputs/apk/release/app-release.apk"
+          test -f "$APK"
+          "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --verbose --print-certs "$APK"
       - uses: actions/upload-artifact@v4
         with:
-          name: FitDaily-v2.8-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: FitDaily-v2.9-signed
+          path: app/build/outputs/apk/release/app-release.apk
