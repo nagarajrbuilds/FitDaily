@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
         runOnUiThread { web.evaluateJavascript("if(typeof fitDailyNativeResultV20==='function'){fitDailyNativeResultV20("+JSONObject.quote(kind)+","+JSONObject.quote(obj.toString())+")}", null) }
     }
     inner class Bridge {
-        @JavascriptInterface fun getStatus() = """{"connected":true,"version":"2.6","platform":"android"}"""
+        @JavascriptInterface fun getStatus() = """{"connected":true,"version":"2.7","platform":"android"}"""
         @JavascriptInterface fun exportBackup(fileName:String, content:String) {
             pendingBackupName = fileName.ifBlank { "fitdaily-backup.json" }
             pendingBackupContent = content
