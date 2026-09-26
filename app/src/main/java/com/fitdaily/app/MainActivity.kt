@@ -4,6 +4,10 @@ import android.annotation.SuppressLint
 import android.app.*
 import android.content.*
 import android.os.Bundle
+import android.os.Build
+import android.content.pm.PackageManager
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import android.webkit.*
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +31,9 @@ class MainActivity : AppCompatActivity() {
         HealthPermission.getReadPermission(ExerciseSessionRecord::class),
         HealthPermission.getReadPermission(WeightRecord::class)
     )
+    private val notificationPermissionLauncher = registerForActivityResult(
+        androidx.activity.result.contract.ActivityResultContracts.RequestPermission()
+    ) { allowed -> sendToWeb("notification", JSONObject().put("allowed", allowed)) }
     private val permissionLauncher = registerForActivityResult(
         PermissionController.createRequestPermissionResultContract()
     ) { granted -> sendToWeb("permissions", JSONObject().apply {
@@ -52,12 +59,17 @@ class MainActivity : AppCompatActivity() {
             override fun handleOnBackPressed() { if (web.canGoBack()) web.goBack() else finish() }
         })
         createNotificationChannel()
+        if (Build.VERSION.SDK_INT >= 33 && ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            notificationPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+        } else {
+            sendToWeb("notification", JSONObject().put("allowed", true))
+        }
     }
     private fun sendToWeb(kind:String, obj:JSONObject) {
         runOnUiThread { web.evaluateJavascript("fitDailyNativeResultV20("+JSONObject.quote(kind)+","+JSONObject.quote(obj.toString())+")", null) }
     }
     inner class Bridge {
-        @JavascriptInterface fun getStatus() = """{"connected":true,"version":"2.1"}"""
+        @JavascriptInterface fun getStatus() = """{"connected":true,"version":"2.2","platform":"android"}"""
         @JavascriptInterface fun requestHealthPermissions(): String {
             runOnUiThread { permissionLauncher.launch(permissions) }
             return """{"requested":true}"""
