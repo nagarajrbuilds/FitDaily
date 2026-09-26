@@ -24,8 +24,8 @@ android {
         applicationId = "com.fitdaily.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 28
-        versionName = "2.8"
+        versionCode = 29
+        versionName = "2.9"
     }
     buildTypes {
         getByName("release") {
