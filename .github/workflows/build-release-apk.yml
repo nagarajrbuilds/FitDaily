@@ -26,5 +26,5 @@ jobs:
         run: gradle assembleRelease
       - uses: actions/upload-artifact@v4
         with:
-          name: FitDaily-v2.1-release
+          name: FitDaily-v2.9-release
           path: app/build/outputs/apk/release/app-release.apk
