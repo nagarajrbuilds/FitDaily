@@ -15,7 +15,7 @@ android {
         }
     }
     namespace = "com.fitdaily.app"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         applicationId = "com.fitdaily.app"
         minSdk = 26
