@@ -1,0 +1,30 @@
+name: Build Play Store AAB
+on:
+  workflow_dispatch:
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+      - name: Decode signing key
+        env:
+          KEYSTORE_B64: ${{ secrets.FITDAILY_KEYSTORE_B64 }}
+        run: echo "$KEYSTORE_B64" | base64 --decode > "$RUNNER_TEMP/fitdaily.jks"
+      - name: Build signed AAB
+        env:
+          FITDAILY_KEYSTORE: ${{ runner.temp }}/fitdaily.jks
+          FITDAILY_STORE_PASSWORD: ${{ secrets.FITDAILY_STORE_PASSWORD }}
+          FITDAILY_KEY_ALIAS: ${{ secrets.FITDAILY_KEY_ALIAS }}
+          FITDAILY_KEY_PASSWORD: ${{ secrets.FITDAILY_KEY_PASSWORD }}
+        run: gradle bundleRelease
+      - uses: actions/upload-artifact@v4
+        with:
+          name: FitDaily-v2.1-playstore-aab
+          path: app/build/outputs/bundle/release/app-release.aab
