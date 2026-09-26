@@ -152,7 +152,7 @@ body{background:
 </div>
 <div class="mini-stats"><div class="mini"><strong id="miniWorkout">0 min</strong><small>WORKOUT</small></div><div class="mini"><strong id="miniProtein">0 g</strong><small>PROTEIN</small></div><div class="mini"><strong id="miniStreak">0 days</strong><small>STREAK</small></div></div>
 </div><div class="grid" id="metrics"></div><div class="section"><h2>Quick add</h2><div class="quick"><button class="qbtn" onclick="quickWater()"><span>💧</span>Water</button><button class="qbtn" onclick="openModal('meal')"><span>🥗</span>Meal</button><button class="qbtn" onclick="openModal('workout')"><span>🏋️</span>Workout</button><button class="qbtn" onclick="openModal('sleep')"><span>🌙</span>Sleep</button></div></div><div class="section"><h2>7-day activity</h2><div class="card"><div class="chart" id="chart"></div><div class="week-labels"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div></div></div>
-<div class="section"><div class="section-head"><h2>Daily insight</h2><span>v1.2</span></div><div class="card insight"><div class="insight-icon">✨</div><div><strong id="insightTitle">Build your day</strong><p id="insightText">Log movement, nutrition, hydration and sleep to see a balanced daily picture.</p></div></div></div></section>
+<div class="section"><div class="section-head"><h2>Daily insight</h2><span>v2.1</span></div><div class="card insight"><div class="insight-icon">✨</div><div><strong id="insightTitle">Build your day</strong><p id="insightText">Log movement, nutrition, hydration and sleep to see a balanced daily picture.</p></div></div></div></section>
 <section id="workout" class="page">
 <div class="workout-hero"><div class="row"><div><h3>Training</h3><p>Build strength one session at a time.</p></div><button class="fab" onclick="openStructuredWorkout()">+ Start</button></div>
 <div class="template-grid"><button class="template" onclick="startTemplate('Push')">💪<br>Push</button><button class="template" onclick="startTemplate('Pull')">🏋️<br>Pull</button><button class="template" onclick="startTemplate('Legs')">🦵<br>Legs</button></div></div>
@@ -291,7 +291,7 @@ function finishOnboardV18(){
 }
 function saveProfileV18(){ensureV18();db.profile.name=document.getElementById('v18Name').value.trim();db.profile.goal=document.getElementById('v18Goal').value;db.profile.onboarded=true;save()}
 function saveRemindersV18(){ensureV18();db.reminders={workout:document.getElementById('remWorkout').value,water:document.getElementById('remWater').value,sleep:document.getElementById('remSleep').value};save();pushNativeRemindersV19();alert('Reminder times saved')}
-function renderV18();renderV19(){
+function renderV18(){
  ensureV18();let n=db.profile.name||'';
  let pn=document.getElementById('profileName');if(pn)pn.textContent=n;
  let av=document.getElementById('profileAvatar');if(av)av.textContent=(n||'F').charAt(0).toUpperCase();
@@ -299,6 +299,7 @@ function renderV18();renderV19(){
  let name=document.getElementById('v18Name');if(name)name.value=n;let goal=document.getElementById('v18Goal');if(goal)goal.value=db.profile.goal||'general';
  let rw=document.getElementById('remWorkout'),rwa=document.getElementById('remWater'),rs=document.getElementById('remSleep');if(rw)rw.value=db.reminders.workout||'';if(rwa)rwa.value=db.reminders.water||'';if(rs)rs.value=db.reminders.sleep||'';
  if(!db.profile.onboarded)document.getElementById('onboardV18').classList.add('show');
+ renderV19();
 }
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstallPrompt=e;let b=document.getElementById('installBtn');if(b)b.textContent='Install app'});
 async function installV18(){if(deferredInstallPrompt){deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null}else alert('Use your browser menu and choose “Add to Home screen” or “Install app”.')}
