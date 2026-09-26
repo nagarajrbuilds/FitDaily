@@ -50,7 +50,13 @@ class MainActivity : AppCompatActivity() {
             settings.javaScriptEnabled = true
             settings.domStorageEnabled = true
             settings.allowFileAccess = true
-            webViewClient = WebViewClient()
+            webViewClient = object : WebViewClient() {
+                override fun onPageFinished(view: WebView?, url: String?) {
+                    super.onPageFinished(view, url)
+                    sendToWeb("notification", JSONObject().put("allowed", Build.VERSION.SDK_INT < 33 || ContextCompat.checkSelfPermission(this@MainActivity, android.Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED))
+                    Bridge().checkHealthStatus()
+                }
+            }
             addJavascriptInterface(Bridge(), "FitDailyAndroid")
             loadUrl("file:///android_asset/index.html")
         }
@@ -66,15 +72,51 @@ class MainActivity : AppCompatActivity() {
         }
     }
     private fun sendToWeb(kind:String, obj:JSONObject) {
-        runOnUiThread { web.evaluateJavascript("fitDailyNativeResultV20("+JSONObject.quote(kind)+","+JSONObject.quote(obj.toString())+")", null) }
+        runOnUiThread { web.evaluateJavascript("if(typeof fitDailyNativeResultV20==='function'){fitDailyNativeResultV20("+JSONObject.quote(kind)+","+JSONObject.quote(obj.toString())+")}", null) }
     }
     inner class Bridge {
-        @JavascriptInterface fun getStatus() = """{"connected":true,"version":"2.4","platform":"android"}"""
+        @JavascriptInterface fun getStatus() = """{"connected":true,"version":"2.5","platform":"android"}"""
+        @JavascriptInterface fun checkHealthStatus(): String {
+            lifecycleScope.launch {
+                val sdk = HealthConnectClient.getSdkStatus(this@MainActivity)
+                val out = JSONObject()
+                out.put("available", sdk == HealthConnectClient.SDK_AVAILABLE)
+                out.put("updateRequired", sdk == HealthConnectClient.SDK_UNAVAILABLE_PROVIDER_UPDATE_REQUIRED)
+                if (sdk == HealthConnectClient.SDK_AVAILABLE) {
+                    try {
+                        val granted = health.permissionController.getGrantedPermissions()
+                        val steps = granted.contains(HealthPermission.getReadPermission(StepsRecord::class))
+                        val sleep = granted.contains(HealthPermission.getReadPermission(SleepSessionRecord::class))
+                        val exercise = granted.contains(HealthPermission.getReadPermission(ExerciseSessionRecord::class))
+                        val weight = granted.contains(HealthPermission.getReadPermission(WeightRecord::class))
+                        out.put("steps",steps).put("sleep",sleep).put("exercise",exercise).put("weight",weight)
+                        out.put("allGranted",steps && sleep && exercise && weight)
+                    } catch(e:Exception) { out.put("message", e.message ?: "Could not read Health Connect permissions") }
+                } else {
+                    out.put("message", if(sdk == HealthConnectClient.SDK_UNAVAILABLE_PROVIDER_UPDATE_REQUIRED) "Health Connect needs an update." else "Health Connect is unavailable on this device.")
+                }
+                sendToWeb("status", out)
+            }
+            return """{"checking":true}"""
+        }
         @JavascriptInterface fun requestHealthPermissions(): String {
-            runOnUiThread { permissionLauncher.launch(permissions) }
+            val sdk = HealthConnectClient.getSdkStatus(this@MainActivity)
+            if (sdk != HealthConnectClient.SDK_AVAILABLE) {
+                sendToWeb("status", JSONObject().put("available",false).put("updateRequired",sdk == HealthConnectClient.SDK_UNAVAILABLE_PROVIDER_UPDATE_REQUIRED).put("message","Health Connect is unavailable or needs an update."))
+                return """{"requested":false}"""
+            }
+            lifecycleScope.launch {
+                val granted = health.permissionController.getGrantedPermissions()
+                if (granted.containsAll(permissions)) checkHealthStatus()
+                else runOnUiThread { permissionLauncher.launch(permissions) }
+            }
             return """{"requested":true}"""
         }
         @JavascriptInterface fun syncHealth(): String {
+            if (HealthConnectClient.getSdkStatus(this@MainActivity) != HealthConnectClient.SDK_AVAILABLE) {
+                sendToWeb("error",JSONObject().put("message","Health Connect is unavailable or needs an update."))
+                return """{"started":false}"""
+            }
             lifecycleScope.launch {
                 try {
                     val granted = health.permissionController.getGrantedPermissions()
@@ -93,6 +135,18 @@ class MainActivity : AppCompatActivity() {
                     if (granted.contains(HealthPermission.getReadPermission(WeightRecord::class))) {
                         val r=health.readRecords(ReadRecordsRequest(WeightRecord::class,TimeRangeFilter.before(now)))
                         r.records.maxByOrNull { it.time }?.let { out.put("weightKg", it.weight.inKilograms) }
+                    }
+                    if (granted.contains(HealthPermission.getReadPermission(ExerciseSessionRecord::class))) {
+                        val r=health.readRecords(ReadRecordsRequest(ExerciseSessionRecord::class,TimeRangeFilter.between(start,now)))
+                        val sessions=org.json.JSONArray()
+                        var totalMinutes=0L
+                        r.records.forEach {
+                            val minutes=Duration.between(it.startTime,it.endTime).toMinutes().coerceAtLeast(0)
+                            totalMinutes += minutes
+                            sessions.put(JSONObject().put("minutes",minutes).put("start",it.startTime.toString()).put("end",it.endTime.toString()))
+                        }
+                        out.put("exerciseMinutes",totalMinutes)
+                        out.put("exercises",sessions)
                     }
                     sendToWeb("sync",out)
                 } catch(e:Exception) {
