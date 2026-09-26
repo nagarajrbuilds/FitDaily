@@ -10,6 +10,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import android.webkit.*
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.result.contract.ActivityResultContracts
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import androidx.health.connect.client.HealthConnectClient
 import androidx.health.connect.client.PermissionController
@@ -24,6 +26,22 @@ import java.time.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var web: WebView
+    private var fileChooserCallback: ValueCallback<Array<Uri>>? = null
+    private var pendingBackupName: String = "fitdaily-backup.json"
+    private var pendingBackupContent: String = ""
+    private val fileChooserLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+        fileChooserCallback?.onReceiveValue(if (uri != null) arrayOf(uri) else null)
+        fileChooserCallback = null
+    }
+    private val backupLauncher = registerForActivityResult(ActivityResultContracts.CreateDocument("application/json")) { uri ->
+        if (uri != null) {
+            runCatching {
+                contentResolver.openOutputStream(uri)?.use { it.write(pendingBackupContent.toByteArray(Charsets.UTF_8)) }
+            }.onSuccess { sendToWeb("backup", JSONObject().put("saved",true)) }
+             .onFailure { sendToWeb("error", JSONObject().put("message","Backup save failed: " + (it.message ?: "unknown error"))) }
+        }
+        pendingBackupContent = ""
+    }
     private val health by lazy { HealthConnectClient.getOrCreate(this) }
     private val permissions = setOf(
         HealthPermission.getReadPermission(StepsRecord::class),
@@ -50,6 +68,14 @@ class MainActivity : AppCompatActivity() {
             settings.javaScriptEnabled = true
             settings.domStorageEnabled = true
             settings.allowFileAccess = true
+            webChromeClient = object : WebChromeClient() {
+                override fun onShowFileChooser(webView: WebView?, filePathCallback: ValueCallback<Array<Uri>>?, fileChooserParams: FileChooserParams?): Boolean {
+                    fileChooserCallback?.onReceiveValue(null)
+                    fileChooserCallback = filePathCallback
+                    fileChooserLauncher.launch("application/json")
+                    return true
+                }
+            }
             webViewClient = object : WebViewClient() {
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)
@@ -75,7 +101,12 @@ class MainActivity : AppCompatActivity() {
         runOnUiThread { web.evaluateJavascript("if(typeof fitDailyNativeResultV20==='function'){fitDailyNativeResultV20("+JSONObject.quote(kind)+","+JSONObject.quote(obj.toString())+")}", null) }
     }
     inner class Bridge {
-        @JavascriptInterface fun getStatus() = """{"connected":true,"version":"2.5","platform":"android"}"""
+        @JavascriptInterface fun getStatus() = """{"connected":true,"version":"2.6","platform":"android"}"""
+        @JavascriptInterface fun exportBackup(fileName:String, content:String) {
+            pendingBackupName = fileName.ifBlank { "fitdaily-backup.json" }
+            pendingBackupContent = content
+            runOnUiThread { backupLauncher.launch(pendingBackupName) }
+        }
         @JavascriptInterface fun checkHealthStatus(): String {
             lifecycleScope.launch {
                 val sdk = HealthConnectClient.getSdkStatus(this@MainActivity)
