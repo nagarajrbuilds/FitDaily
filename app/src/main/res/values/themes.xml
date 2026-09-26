@@ -1,0 +1,7 @@
+<resources>
+<style name="Theme.FitDaily" parent="Theme.AppCompat.DayNight.NoActionBar">
+ <item name="android:fontFamily">sans</item><item name="android:windowLightStatusBar">false</item>
+ <item name="android:statusBarColor">@color/fit_bg</item><item name="android:navigationBarColor">@color/fit_bg</item>
+ <item name="android:windowBackground">@drawable/splash_background</item>
+</style>
+</resources>
