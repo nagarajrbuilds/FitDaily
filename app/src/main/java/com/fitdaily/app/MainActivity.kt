@@ -100,13 +100,26 @@ class MainActivity : AppCompatActivity() {
     private fun sendToWeb(kind:String, obj:JSONObject) {
         runOnUiThread { web.evaluateJavascript("if(typeof fitDailyNativeResultV20==='function'){fitDailyNativeResultV20("+JSONObject.quote(kind)+","+JSONObject.quote(obj.toString())+")}", null) }
     }
+    override fun onPause() {
+        if (::web.isInitialized) web.evaluateJavascript("try{persistFitDaily();'ok'}catch(e){'error'}", null)
+        super.onPause()
+    }
+    override fun onStop() {
+        if (::web.isInitialized) web.evaluateJavascript("try{persistFitDaily();'ok'}catch(e){'error'}", null)
+        super.onStop()
+    }
     inner class Bridge {
-        @JavascriptInterface fun getStatus() = """{"connected":true,"version":"2.10","platform":"android"}"""
+        @JavascriptInterface fun getStatus() = """{"connected":true,"version":"2.11","platform":"android"}"""
         @JavascriptInterface fun saveDatabase(json:String) {
-            getSharedPreferences("fitdaily_persistent", MODE_PRIVATE).edit().putString("database", json).commit()
+            getSharedPreferences("fitdaily_persistent", MODE_PRIVATE).edit().putString("database", json).putLong("lastSaveAt", System.currentTimeMillis()).commit()
         }
         @JavascriptInterface fun loadDatabase(): String =
             getSharedPreferences("fitdaily_persistent", MODE_PRIVATE).getString("database", "") ?: ""
+        @JavascriptInterface fun getPersistenceStatus(): String {
+            val p = getSharedPreferences("fitdaily_persistent", MODE_PRIVATE)
+            return JSONObject().put("hasDatabase", !p.getString("database", "").isNullOrBlank())
+                .put("lastSaveAt", p.getLong("lastSaveAt", 0L)).toString()
+        }
         @JavascriptInterface fun exportBackup(fileName:String, content:String) {
             pendingBackupName = fileName.ifBlank { "fitdaily-backup.json" }
             pendingBackupContent = content
