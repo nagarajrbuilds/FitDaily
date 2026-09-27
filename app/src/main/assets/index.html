@@ -337,20 +337,23 @@ const RECOVERY_KEY='fitdaily_v1_recovery';
 const day=()=>new Date().toISOString().slice(0,10);
 const defaults={goals:{steps:10000,water:2500,calories:2200,sleep:8},days:{}};
 function readFitDailyDb(){
+ let nativeRaw='';
+ try{if(window.FitDailyAndroid&&typeof FitDailyAndroid.loadDatabase==='function')nativeRaw=FitDailyAndroid.loadDatabase()||''}catch(e){}
  const primary=localStorage.getItem(KEY), recovery=localStorage.getItem(RECOVERY_KEY);
- for(const raw of [primary,recovery]){
+ for(const raw of [nativeRaw,primary,recovery]){
   if(!raw)continue;
-  try{let parsed=JSON.parse(raw);if(parsed&&typeof parsed==='object'&&parsed.days&&typeof parsed.days==='object')return parsed}catch(e){}
+  try{const parsed=JSON.parse(raw);if(parsed&&typeof parsed==='object'&&parsed.days&&typeof parsed.days==='object')return parsed}catch(e){}
  }
- return structuredClone?structuredClone(defaults):JSON.parse(JSON.stringify(defaults));
+ return typeof structuredClone==='function'?structuredClone(defaults):JSON.parse(JSON.stringify(defaults));
 }
 let db=readFitDailyDb();db.goals={...defaults.goals,...(db.goals||{})};db.days=db.days||{};
 function persistFitDaily(){
  const json=JSON.stringify(db);
+ try{if(window.FitDailyAndroid&&typeof FitDailyAndroid.saveDatabase==='function')FitDailyAndroid.saveDatabase(json)}catch(e){console.error('Native persistence failed',e)}
  localStorage.setItem(KEY,json);
  localStorage.setItem(RECOVERY_KEY,json);
 }
-if(localStorage.getItem(KEY))localStorage.setItem(RECOVERY_KEY,localStorage.getItem(KEY));else persistFitDaily();
+persistFitDaily();
 function d(){if(!db.days[day()])db.days[day()]={steps:0,water:0,sleep:0,meals:[],workouts:[]};return db.days[day()]}; function save(){persistFitDaily();render()}
 function pct(v,g){return Math.min(100,Math.round((+v||0)/(+g||1)*100))} function metric(icon,label,val,goal,p){return `<div class="card"><div class="row"><span style="font-size:24px">${icon}</span><span class="pill">${p}%</span></div><div class="metric">${val}</div><div class="label">${label} · goal ${goal}</div><div class="bar"><div class="fill" style="width:${p}%"></div></div></div>`}
 function render(){let x=d(), c=x.meals.reduce((a,b)=>a+(+b.cal||0),0), mins=x.workouts.reduce((a,b)=>a+(+b.min||0),0);let ps=[pct(x.steps,db.goals.steps),pct(x.water,db.goals.water),pct(c,db.goals.calories),pct(x.sleep,db.goals.sleep)];document.getElementById('score').textContent=Math.round(ps.reduce((a,b)=>a+b,0)/4)+'%';document.getElementById('metrics').innerHTML=metric('👟','Steps',x.steps.toLocaleString(),db.goals.steps.toLocaleString(),ps[0])+metric('💧','Water',x.water+' ml',db.goals.water+' ml',ps[1])+metric('🥗','Calories',c+' kcal',db.goals.calories+' kcal',ps[2])+metric('🌙','Sleep',x.sleep+' h',db.goals.sleep+' h',ps[3]);
