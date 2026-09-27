@@ -79,6 +79,10 @@ class MainActivity : AppCompatActivity() {
             webViewClient = object : WebViewClient() {
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)
+                    val savedDb = getSharedPreferences("fitdaily_persistent", MODE_PRIVATE).getString("database", "") ?: ""
+                    if (savedDb.isNotBlank()) {
+                        view?.evaluateJavascript("if(typeof fitDailyRestoreNative==='function'){fitDailyRestoreNative(" + JSONObject.quote(savedDb) + ")}", null)
+                    }
                     sendToWeb("notification", JSONObject().put("allowed", Build.VERSION.SDK_INT < 33 || ContextCompat.checkSelfPermission(this@MainActivity, android.Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED))
                     Bridge().checkHealthStatus()
                 }
@@ -109,7 +113,7 @@ class MainActivity : AppCompatActivity() {
         super.onStop()
     }
     inner class Bridge {
-        @JavascriptInterface fun getStatus() = """{"connected":true,"version":"2.11","platform":"android"}"""
+        @JavascriptInterface fun getStatus() = """{"connected":true,"version":"2.12","platform":"android"}"""
         @JavascriptInterface fun saveDatabase(json:String) {
             getSharedPreferences("fitdaily_persistent", MODE_PRIVATE).edit().putString("database", json).putLong("lastSaveAt", System.currentTimeMillis()).commit()
         }
