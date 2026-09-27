@@ -102,6 +102,11 @@ class MainActivity : AppCompatActivity() {
     }
     inner class Bridge {
         @JavascriptInterface fun getStatus() = """{"connected":true,"version":"2.9","platform":"android"}"""
+        @JavascriptInterface fun saveDatabase(json:String) {
+            getSharedPreferences("fitdaily_persistent", MODE_PRIVATE).edit().putString("database", json).commit()
+        }
+        @JavascriptInterface fun loadDatabase(): String =
+            getSharedPreferences("fitdaily_persistent", MODE_PRIVATE).getString("database", "") ?: ""
         @JavascriptInterface fun exportBackup(fileName:String, content:String) {
             pendingBackupName = fileName.ifBlank { "fitdaily-backup.json" }
             pendingBackupContent = content
